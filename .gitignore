@@ -1,0 +1,8 @@
+*.suo
+*.user
+JavascriptPrecompiler/bin
+JavascriptPrecompiler/obj
+JavascriptPrecompiler/*.user
+PrecompilerTests/bin
+PrecompilerTests/obj
+PrecompilerTests/*.user
