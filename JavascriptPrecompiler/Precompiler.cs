@@ -8,7 +8,7 @@ namespace JavascriptPrecompiler
 {
 	public class Precompiler
 	{
-		public static IDictionary<string, string> OutputCache = new Dictionary<string, string>(); 
+		internal static IDictionary<string, string> OutputCache = new Dictionary<string, string>(); 
 
 		public static Precompiler DustJS()
 		{
