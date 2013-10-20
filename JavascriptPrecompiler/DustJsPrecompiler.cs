@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -9,34 +8,6 @@ using Jurassic;
 
 namespace JavascriptPrecompiler
 {
-	public class FileResources
-	{
-		public static string GetFileContents(string filePath)
-		{
-			var contents = "";
-			if (File.Exists(filePath))
-			{
-				contents = File.ReadAllText(filePath);
-			}
-			else
-			{
-				contents = TryGetEmbeddedResource(filePath, contents);
-			}
-			return contents;
-		}
-
-		private static string TryGetEmbeddedResource(string filePath, string contents)
-		{
-			var resourceName = "JavascriptPrecompiler." + filePath.Replace("/", ".").Replace("\\", ".");
-			using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName))
-			using (var reader = new StreamReader(stream))
-			{
-				contents = reader.ReadToEnd();
-			}
-			return contents;
-		}
-	}
-
 	public class DustJsPrecompiler : IPrecompiler
 	{
 		private const string _scriptTag = @"<script type='text/javascript' src='{0}'></script>";
@@ -46,6 +17,7 @@ namespace JavascriptPrecompiler
 		private const string _loadTemplateFunction = @"dust.loadSource";
 		private readonly IDictionary<string, string> _filesToLoad = new Dictionary<string, string>();
 		private readonly ScriptEngine _engine;
+		private bool _includeRuntimeLibrary;
 
 		public DustJsPrecompiler()
 		{
@@ -72,7 +44,26 @@ namespace JavascriptPrecompiler
 
 		public MvcHtmlString Compile()
 		{
+			var builder = BuildOutput();
+			var output = builder.ToString();
+
+			var hash = "template" + new MD5Hasher().GetHash(output);
+			Precompiler.OutputCache.Add(hash, output);
+
+			return new MvcHtmlString(string.Format(_scriptTag, GetPath(hash)));
+		}
+
+		private StringBuilder BuildOutput()
+		{
 			var builder = new StringBuilder();
+
+			if (_includeRuntimeLibrary)
+			{
+				var library = FileResources.GetFileContents(_javascriptLibraryPath);
+				builder.Append(library);
+				builder.Append(";\r\n");
+			}
+
 			builder.AppendLine("(function()\r\n{");
 			foreach (var file in _filesToLoad)
 			{
@@ -86,13 +77,13 @@ namespace JavascriptPrecompiler
 				builder.AppendFormat("\t{0}('{1}');\r\n", _loadTemplateFunction, precompileTemplate);
 			}
 			builder.AppendLine("})();");
-			var output = builder.ToString();
-
-			var hash = "template" + new MD5Hasher().GetHash(output);
-			Precompiler.OutputCache.Add(hash, output);
-
-			return new MvcHtmlString(string.Format(_scriptTag, GetPath(hash)));
+			return builder;
 		}
 
+		public IPrecompiler IncludeLibrary()
+		{
+			_includeRuntimeLibrary = true;
+			return this;
+		}
 	}
 }

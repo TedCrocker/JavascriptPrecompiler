@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DustJsPrecompiler.cs" />
+    <Compile Include="FileResources.cs" />
     <Compile Include="IFileHasher.cs" />
     <Compile Include="IPrecompiler.cs" />
     <Compile Include="MD5Hasher.cs" />

@@ -6,5 +6,6 @@ namespace JavascriptPrecompiler
 	{
 		IPrecompiler Add(string templateName, string templateFilePath);
 		MvcHtmlString Compile();
+		IPrecompiler IncludeLibrary();
 	}
 }
