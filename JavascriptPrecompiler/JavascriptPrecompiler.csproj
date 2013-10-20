@@ -58,11 +58,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\dust.js" />
-    <Content Include="Scripts\handlebars.js">
+    <EmbeddedResource Include="JavascriptPrecompilers\dust.js" />
+    <Content Include="JavascriptPrecompilers\handlebars.js">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\handlebars.runtime.js" />
+    <Content Include="JavascriptPrecompilers\handlebars.runtime.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

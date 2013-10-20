@@ -12,7 +12,7 @@ namespace JavascriptPrecompiler
 	{
 		private const string _scriptTag = @"<script type='text/javascript' src='{0}'></script>";
 		private const string _controllerPath = "~/Precompiled/Js/{0}";
-		private const string _javascriptLibraryPath = @"Scripts\dust.js";
+		private const string _javascriptLibraryPath = @"JavascriptPrecompilers\dust.js";
 		private const string _javascriptCompileFunction = @"dust.compile";
 		private const string _loadTemplateFunction = @"dust.loadSource";
 		private readonly IDictionary<string, string> _filesToLoad = new Dictionary<string, string>();
