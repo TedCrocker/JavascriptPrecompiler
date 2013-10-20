@@ -40,7 +40,10 @@ namespace JavascriptPrecompiler
 			var output = builder.ToString();
 
 			var hash = "template" + new MD5Hasher().GetHash(output);
-			OutputCache.Add(hash, output);
+			if (!OutputCache.ContainsKey(hash))
+			{
+				OutputCache.Add(hash, output);				
+			}
 
 			return new MvcHtmlString(string.Format(_scriptTag, GetPath(hash)));
 		}

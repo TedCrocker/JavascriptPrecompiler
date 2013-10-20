@@ -17,10 +17,25 @@
 
 @JavascriptPrecompiler.Precompiler.DustJS().IncludeLibrary().Add("helloWord", "~/Templates/helloWorld.dust").Compile()
 
-<ol class="round">
-	<li class="one"></li>
+<article>
+	<h3>DustJs output:</h3>
+	<div id="dustOutput"></div>
+</article>
 
-	<li class="two"></li>
+	
+		
+<article>
+	<h3>Handlebars output:</h3>
+	<div id="handlebarsOutput"></div>
+</article>
+	
 
-	<li class="three"></li>
-</ol>
+
+@section scripts
+{
+	<script>
+		dust.render("helloWord", { name: 'World' }, function(err, out) {
+			$('#dustOutput').html(out);
+		})
+	</script>	
+}
