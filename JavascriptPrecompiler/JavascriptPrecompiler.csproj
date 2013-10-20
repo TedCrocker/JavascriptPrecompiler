@@ -51,7 +51,7 @@
     <Compile Include="MD5Hasher.cs" />
     <Compile Include="PrecompiledController.cs" />
     <Compile Include="Precompiler.cs" />
-    <Compile Include="TemplatePrecompiler.cs" />
+    <Compile Include="HandlebarsPrecompiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

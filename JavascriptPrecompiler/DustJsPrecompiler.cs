@@ -28,10 +28,10 @@ namespace JavascriptPrecompiler
 		{
 			return FileResources.GetFileContents(_javascriptLibraryPath);
 		}
-		
-		public string PrecompileTemplate(string templateName, string template)
+
+		public string GetJavascript(string templateName, string template)
 		{
-			return _engine.CallGlobalFunction("precompile", template, templateName).ToString();
+			return string.Format("\t{0}('{1}');\r\n", _loadTemplateFunction, _engine.CallGlobalFunction("precompile", template, templateName).ToString());
 		}
 	}
 }

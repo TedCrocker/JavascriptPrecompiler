@@ -13,23 +13,26 @@ namespace PrecompilerTests
 	public class PrecompilerTests
 	{
 		[Test]
-		public void HandlebarsTest()
+		public void HandlebarsPrecompilerTest()
 		{
 			var template = "<div>{{hello}} world!</div>";
-			var precompile = TemplatePrecompiler.PrecompileHandlebars("Test", template);
-			Assert.That(precompile, Is.Not.Null);
-			Assert.That(precompile, Is.Not.Empty);
+			var compiler = new HandlebarsPrecompiler();
+			var output = compiler.GetJavascript("Yar", template);
+
+			Assert.That(output, Is.Not.Null);
+			Assert.That(output, Is.Not.Empty);
 		}
 
 		[Test]
 		public void DustPrecompilerTest()
 		{
-			var compiler = new Precompiler(new DustJsPrecompiler());
-			
-			compiler.Add("test", @"testFiles\\helloWorld.dust");
-			var fileName = compiler.Compile();
+			var compiler = new DustJsPrecompiler();
+			var template = "<div>Hello {name}!</div>";
+			var output = compiler.GetJavascript("Yar", template);
+			//compiler.Add("test", @"testFiles\\helloWorld.dust");
 
-			Assert.That(fileName, Is.Not.Null);
+			Assert.That(output, Is.Not.Null);
+			Assert.That(output, Is.Not.Empty);
 		}
 	}
 }

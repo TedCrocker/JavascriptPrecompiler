@@ -62,6 +62,7 @@ namespace JavascriptPrecompiler
 			}
 
 			builder.AppendLine("(function()\r\n{");
+			builder.AppendLine("\twindow.templates = {};");
 			foreach (var file in _filesToLoad)
 			{
 				var filePath = file.Value;
@@ -70,7 +71,8 @@ namespace JavascriptPrecompiler
 					filePath = HttpContext.Current.Server.MapPath(filePath);
 				}
 				var input = File.ReadAllText(filePath);
-				builder.AppendFormat("\t{0}('{1}');\r\n", _precompiler.LoadTemplateFunction, _precompiler.PrecompileTemplate(file.Key, input));
+				builder.AppendLine(_precompiler.GetJavascript(file.Key, input));
+
 			}
 			builder.AppendLine("})();");
 			return builder;
