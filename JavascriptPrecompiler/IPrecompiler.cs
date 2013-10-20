@@ -4,8 +4,8 @@ namespace JavascriptPrecompiler
 {
 	public interface IPrecompiler
 	{
-		IPrecompiler Add(string templateName, string templateFilePath);
-		MvcHtmlString Compile();
-		IPrecompiler IncludeLibrary();
+		string GetLibraryRuntimeFileContents();
+		string PrecompileTemplate(string templateName, string template);
+		string LoadTemplateFunction { get; }
 	}
 }

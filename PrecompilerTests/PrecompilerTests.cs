@@ -24,7 +24,8 @@ namespace PrecompilerTests
 		[Test]
 		public void DustPrecompilerTest()
 		{
-			var compiler = new DustJsPrecompiler();
+			var compiler = new Precompiler(new DustJsPrecompiler());
+			
 			compiler.Add("test", @"testFiles\\helloWorld.dust");
 			var fileName = compiler.Compile();
 
