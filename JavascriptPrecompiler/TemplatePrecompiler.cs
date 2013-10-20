@@ -1,6 +1,5 @@
 ﻿using Jurassic;
 
-
 namespace JavascriptPrecompiler
 {
 	public static class TemplatePrecompiler

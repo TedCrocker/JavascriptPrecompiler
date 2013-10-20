@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DustJsPrecompiler.cs" />
+    <Compile Include="IFileHasher.cs" />
+    <Compile Include="MD5Hasher.cs" />
     <Compile Include="TemplatePrecompiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
