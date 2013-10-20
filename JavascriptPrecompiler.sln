@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavascriptPrecompiler", "Ja
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrecompilerTests", "PrecompilerTests\PrecompilerTests.csproj", "{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApp", "SampleWebApp\SampleWebApp.csproj", "{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

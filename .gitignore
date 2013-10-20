@@ -6,3 +6,6 @@ JavascriptPrecompiler/*.user
 PrecompilerTests/bin
 PrecompilerTests/obj
 PrecompilerTests/*.user
+SampleWebApp/bin
+SampleWebApp/obj
+SampleWebApp/*.user
