@@ -35,11 +35,9 @@ namespace PrecompilerTests
 		{
 			var compiler = new DustJsPrecompiler();
 			compiler.Add("test", @"testFiles\\helloWorld.dust");
-			compiler.Compile();
+			var fileName = compiler.Compile();
 
-			Assert.That(compiler.Output, Is.Not.Null);
-			Assert.That(compiler.Output, Is.Not.Empty);
-			File.WriteAllText("test.js", compiler.Output);
+			Assert.That(fileName, Is.Not.Empty);
 		}
 	}
 }

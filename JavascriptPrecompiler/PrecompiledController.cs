@@ -6,7 +6,7 @@ namespace JavascriptPrecompiler
 	{
 		public ActionResult Js(string key)
 		{
-			return Content("OK");
+			return Content(Precompiler.OutputCache[key], "application/javascript");
 		}
 	}
 }
