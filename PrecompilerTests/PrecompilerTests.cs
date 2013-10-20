@@ -22,22 +22,13 @@ namespace PrecompilerTests
 		}
 
 		[Test]
-		public void DustJSTest()
-		{
-			var template = "<div>{hello} world!</div>";
-			var precompile = TemplatePrecompiler.PrecompileDustJS("Test", template);
-			Assert.That(precompile, Is.Not.Null);
-			Assert.That(precompile, Is.Not.Empty);
-		}
-
-		[Test]
 		public void DustPrecompilerTest()
 		{
 			var compiler = new DustJsPrecompiler();
 			compiler.Add("test", @"testFiles\\helloWorld.dust");
 			var fileName = compiler.Compile();
 
-			Assert.That(fileName, Is.Not.Empty);
+			Assert.That(fileName, Is.Not.Null);
 		}
 	}
 }
