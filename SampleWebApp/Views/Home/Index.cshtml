@@ -18,7 +18,8 @@
 @JavascriptPrecompiler.Precompiler.DustJS().IncludeLibrary().Add("helloWord", "~/Templates/helloWorld.dust").Compile()
 
 <article>
-	<h3>DustJs output:</h3>
+	<h3>DustJs</h3>
+	<div id="dustTemplate"></div>
 	<div id="dustOutput"></div>
 </article>
 
@@ -36,6 +37,10 @@
 	<script>
 		dust.render("helloWord", { name: 'World' }, function(err, out) {
 			$('#dustOutput').html(out);
-		})
+		});
+
+		$.get('/Templates/helloWorld.dust', function(data) {
+			$('#dustTemplate').text(data);
+		});
 	</script>	
 }
