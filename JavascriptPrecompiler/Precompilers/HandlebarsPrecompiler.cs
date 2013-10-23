@@ -1,6 +1,7 @@
-﻿using Jurassic;
+﻿using JavascriptPrecompiler.Utilities;
+using Jurassic;
 
-namespace JavascriptPrecompiler
+namespace JavascriptPrecompiler.Precompilers
 {
 	public class HandlebarsPrecompiler : IPrecompiler
 	{

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Web;
-using System.Web.Mvc;
+﻿using JavascriptPrecompiler.Utilities;
 using Jurassic;
 
-namespace JavascriptPrecompiler
+namespace JavascriptPrecompiler.Precompilers
 {
 	public class DustJsPrecompiler : IPrecompiler
 	{

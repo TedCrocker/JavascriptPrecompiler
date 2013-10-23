@@ -1,4 +1,5 @@
 ﻿using JavascriptPrecompiler;
+using JavascriptPrecompiler.Utilities;
 using NUnit.Framework;
 
 namespace PrecompilerTests

@@ -1,6 +1,4 @@
-﻿using System.Web.Mvc;
-
-namespace JavascriptPrecompiler
+﻿namespace JavascriptPrecompiler.Precompilers
 {
 	public interface IPrecompiler
 	{

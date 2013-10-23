@@ -1,4 +1,4 @@
-﻿namespace JavascriptPrecompiler
+﻿namespace JavascriptPrecompiler.Utilities
 {
 	public interface IFileHasher
 	{

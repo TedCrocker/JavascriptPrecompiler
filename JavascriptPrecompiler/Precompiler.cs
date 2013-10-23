@@ -3,6 +3,8 @@ using System.IO;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using JavascriptPrecompiler.Precompilers;
+using JavascriptPrecompiler.Utilities;
 
 namespace JavascriptPrecompiler
 {

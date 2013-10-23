@@ -44,15 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DustJsPrecompiler.cs" />
-    <Compile Include="FileResources.cs" />
-    <Compile Include="IFileHasher.cs" />
-    <Compile Include="IPrecompiler.cs" />
-    <Compile Include="MD5Hasher.cs" />
     <Compile Include="PrecompiledController.cs" />
     <Compile Include="Precompiler.cs" />
-    <Compile Include="HandlebarsPrecompiler.cs" />
+    <Compile Include="Precompilers\DustJsPrecompiler.cs" />
+    <Compile Include="Precompilers\HandlebarsPrecompiler.cs" />
+    <Compile Include="Precompilers\IPrecompiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\FileResources.cs" />
+    <Compile Include="Utilities\IFileHasher.cs" />
+    <Compile Include="Utilities\MD5Hasher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -64,6 +64,7 @@
     </Content>
     <Content Include="JavascriptPrecompilers\handlebars.runtime.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

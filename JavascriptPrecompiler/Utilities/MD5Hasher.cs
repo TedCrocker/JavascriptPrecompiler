@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace JavascriptPrecompiler
+namespace JavascriptPrecompiler.Utilities
 {
 	public class MD5Hasher : IFileHasher
 	{

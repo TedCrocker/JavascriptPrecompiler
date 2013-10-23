@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Web;
 
-namespace JavascriptPrecompiler
+namespace JavascriptPrecompiler.Utilities
 {
 	public class FileResources
 	{
