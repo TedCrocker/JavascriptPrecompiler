@@ -18,29 +18,54 @@
 @JavascriptPrecompiler.Precompiler.DustJS().IncludeLibrary().Add("helloWord", "~/Templates/helloWorld.dust").Compile()
 
 <article>
-	<h3>DustJs</h3>
-	<div id="dustTemplate"></div>
-	<div id="dustOutput"></div>
+    <h2>DustJs</h2>
+    <div class="codeSection">
+        <h4>Template</h4>
+        <pre class="prettyprint" id="dustTemplate"></pre>
+    </div>
+    <div class="codeSection">
+        <h4>Razor code</h4>
+        <pre class="prettyprint">
+@@JavascriptPrecompiler.Precompiler.DustJS()
+.IncludeLibrary()
+.Add("helloWord", "~/Templates/helloWorld.dust")
+.Compile()
+        </pre>
+    </div>
+    <div>
+        <h4>Javascript</h4>
+        <pre class="prettyprint">
+dust.render("helloWord", { name: 'World' }, function(err, out) {
+    $('#dustOutput').html(out);
+});
+        </pre>
+    </div>
+    <div class="codeSection">
+        <h4>Output</h4>
+        <div class="exampleOutput" id="dustOutput"></div>
+    </div>
 </article>
 
 	
 		
 <article>
-	<h3>Handlebars output:</h3>
-	<div id="handlebarsOutput"></div>
+	<h2>Handlebars output:</h2>
+    <div class="exampleOutput" id="handlebarsOutput"></div>
 </article>
 	
 
 
 @section scripts
 {
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Prettify/prettify.js")"></script>
 	<script>
 		dust.render("helloWord", { name: 'World' }, function(err, out) {
 			$('#dustOutput').html(out);
 		});
 
 		$.get('/Templates/helloWorld.dust', function(data) {
-			$('#dustTemplate').text(data);
+		    $('#dustTemplate').text(data);
+		    prettyPrint();
 		});
 	</script>	
 }

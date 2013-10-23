@@ -360,8 +360,11 @@ ol.round
 /* content */
 article
 {
-	float: left;
-	width: 70%;
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 1em;
+	background-color: #a6dbed;
+	border-radius: 1em;
 }
 
 aside
@@ -885,4 +888,26 @@ tr.pager td
 		{
 			margin: 0;
 		}
+}
+
+
+.codeSection {
+	height: 100%;
+	display: block;
+	width: 100%;
+}
+
+.prettyprint 
+{
+	padding: 8px !important;
+	border-radius: 1em;
+	display: inline-block
+}
+
+.exampleOutput 
+{
+	padding: 8px;
+	border-radius: 1em;
+	display: inline-block;
+	background-color: #d3dce0;
 }
