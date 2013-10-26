@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using JavascriptPrecompiler;
 using JavascriptPrecompiler.Precompilers;
+using JavascriptPrecompiler.Utilities;
 using NUnit.Framework;
 
 namespace PrecompilerTests
@@ -31,7 +33,6 @@ namespace PrecompilerTests
 			Assert.That(Cache.First().Value, Is.StringContaining("testTemplate"));
 		}
 
-
 		[Test]
 		public void CanAddMultipleFiles()
 		{
@@ -45,6 +46,17 @@ namespace PrecompilerTests
 			Assert.That(Cache.First().Value, Is.StringContaining("var helloWorld2 = "));
 		}
 
+		[Test]
+		public void CanIncludeRuntimeLibrary()
+		{
+			_precompiler.IncludeLibrary();
+			var result = _precompiler.Compile();
+
+			Assert.That(result, Is.Not.Null);
+			Assert.That(Cache.Count, Is.EqualTo(1));
+			Assert.That(Cache.First().Value, Is.StringContaining("var testLibrary = \"this is a test file!\";"));
+		}
+
 		private IDictionary<string, string> Cache
 		{
 			get
@@ -54,14 +66,13 @@ namespace PrecompilerTests
 			}
 		}
 
-
 	}
 
 	public class FakeJSPrecompiler : IPrecompiler
 	{
 		public string GetLibraryRuntimeFileContents()
 		{
-			return "testString";
+			return FileResources.GetFileContents(@"testFiles\testLibrary.js");
 		}
 
 		public string GetJavascript(string templateName, string template)
