@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileResourcesTests.cs" />
     <Compile Include="IFileHasherTests.cs" />
     <Compile Include="PrecompilerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
