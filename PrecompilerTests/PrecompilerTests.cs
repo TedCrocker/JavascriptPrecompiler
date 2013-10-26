@@ -57,6 +57,15 @@ namespace PrecompilerTests
 			Assert.That(Cache.First().Value, Is.StringContaining("var testLibrary = \"this is a test file!\";"));
 		}
 
+		[Test]
+		public void CanGetCompiledResult()
+		{
+			_precompiler.IncludeLibrary();
+			var results = _precompiler.Compile().ToString();
+			var fileName = results.Replace("<script type='text/javascript' src='~/Precompiled/Js/", "").Replace("'></script>", "");
+			Assert.That(Cache[fileName], Is.Not.Null);
+		}
+
 		private IDictionary<string, string> Cache
 		{
 			get
