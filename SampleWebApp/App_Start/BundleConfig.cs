@@ -24,7 +24,9 @@ namespace SampleWebApp
 						"~/Scripts/modernizr-*"));
 
 			bundles.Add(new StyleBundle("~/Content/css")
-						.Include("~/Content/site.css",
+						.Include(
+						"~/Content/normalize.css",
+						"~/Content/site.css",
 						"~/Content/Prettify/prettify.css",
 						"~/Content/Prettify/Themes/sons-of-obsidian.css"
 					));
