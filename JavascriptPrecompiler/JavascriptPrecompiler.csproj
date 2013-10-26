@@ -61,7 +61,7 @@
     <EmbeddedResource Include="JavascriptPrecompilers\dust-full.js" />
     <EmbeddedResource Include="JavascriptPrecompilers\dust-core.js" />
     <EmbeddedResource Include="JavascriptPrecompilers\handlebars.js" />
-    <Content Include="JavascriptPrecompilers\handlebars.runtime.js" />
+    <EmbeddedResource Include="JavascriptPrecompilers\handlebars.runtime.js" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -24,7 +24,9 @@ namespace JavascriptPrecompiler.Utilities
 		public static IDictionary<string, string> GetTemplateFilePaths(string searchPath)
 		{
 			var result = new Dictionary<string, string>();
-			var files = Directory.GetFiles(Directory.GetCurrentDirectory(), searchPath);
+			var currentDirectory = GetGetDirectoryPath();
+
+			var files = Directory.GetFiles(currentDirectory, searchPath.Replace("~/", ""));
 
 			foreach (var filePath in files)
 			{
@@ -32,6 +34,15 @@ namespace JavascriptPrecompiler.Utilities
 			}
 
 			return result;
+		}
+
+		private static string GetGetDirectoryPath()
+		{
+			if (HttpContext.Current != null)
+			{
+				return HttpContext.Current.Server.MapPath("~/");
+			}
+			return Directory.GetCurrentDirectory();
 		}
 
 

@@ -17,6 +17,10 @@ namespace JavascriptPrecompiler
 			return new Precompiler(new DustJsPrecompiler());
 		}
 
+		public static Precompiler Handlebars()
+		{
+			return new Precompiler(new HandlebarsPrecompiler());
+		}
 
 		private readonly IDictionary<string, string> _filesToLoad = new Dictionary<string, string>();
 		private IPrecompiler _precompiler;
@@ -80,7 +84,7 @@ namespace JavascriptPrecompiler
 			foreach (var file in _filesToLoad)
 			{
 				var filePath = file.Value;
-				if (HttpContext.Current != null)
+				if (!File.Exists(filePath) && HttpContext.Current != null)
 				{
 					filePath = HttpContext.Current.Server.MapPath(filePath);
 				}
