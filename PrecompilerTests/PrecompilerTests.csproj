@@ -47,6 +47,7 @@
     <Compile Include="FileResourcesTests.cs" />
     <Compile Include="IFileHasherTests.cs" />
     <Compile Include="JavascriptPrecompilerTests.cs" />
+    <Compile Include="PrecompilerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
