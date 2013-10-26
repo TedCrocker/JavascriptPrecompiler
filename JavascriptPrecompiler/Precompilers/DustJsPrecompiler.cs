@@ -5,7 +5,8 @@ namespace JavascriptPrecompiler.Precompilers
 {
 	public class DustJsPrecompiler : IPrecompiler
 	{
-		private const string _javascriptLibraryPath = @"JavascriptPrecompilers\dust.js";
+		private const string _javascriptLibraryPath = @"JavascriptPrecompilers\dust-full.js";
+		private const string _javascriptRuntimeLibraryPath = @"JavascriptPrecompilers\dust-core.js";
 		private const string _javascriptCompileFunction = @"dust.compile";
 		private const string _loadTemplateFunction = @"dust.loadSource";
 		private readonly ScriptEngine _engine;
@@ -21,7 +22,7 @@ namespace JavascriptPrecompiler.Precompilers
 
 		public string GetLibraryRuntimeFileContents()
 		{
-			return FileResources.GetFileContents(_javascriptLibraryPath);
+			return FileResources.GetFileContents(_javascriptRuntimeLibraryPath);
 		}
 
 		public string GetJavascript(string templateName, string template)

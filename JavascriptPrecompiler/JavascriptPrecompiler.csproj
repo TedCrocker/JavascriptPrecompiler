@@ -58,10 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="JavascriptPrecompilers\dust.js" />
-    <Content Include="JavascriptPrecompilers\handlebars.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <EmbeddedResource Include="JavascriptPrecompilers\dust-full.js" />
+    <EmbeddedResource Include="JavascriptPrecompilers\dust-core.js" />
+    <EmbeddedResource Include="JavascriptPrecompilers\handlebars.js" />
     <Content Include="JavascriptPrecompilers\handlebars.runtime.js" />
   </ItemGroup>
   <ItemGroup />
