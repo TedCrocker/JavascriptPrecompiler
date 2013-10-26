@@ -54,6 +54,9 @@
     <Content Include="testFiles\helloWorld.dust">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="testFiles\helloWorld2.dust">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\JavascriptPrecompiler\JavascriptPrecompiler.csproj">

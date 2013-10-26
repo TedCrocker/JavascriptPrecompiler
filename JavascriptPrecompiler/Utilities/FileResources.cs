@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using System.Web;
 
@@ -19,6 +20,20 @@ namespace JavascriptPrecompiler.Utilities
 			}
 			return contents;
 		}
+
+		public static IDictionary<string, string> GetTemplateFiles(string searchPath)
+		{
+			var result = new Dictionary<string, string>();
+			var files = Directory.GetFiles(Directory.GetCurrentDirectory(), searchPath);
+
+			foreach (var file in files)
+			{
+				result.Add(Path.GetFileNameWithoutExtension(file), GetFileContents(file));
+			}
+
+			return result;
+		}
+
 
 		private static string GetFilePath(string filePath)
 		{
