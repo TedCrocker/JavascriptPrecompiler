@@ -21,14 +21,14 @@ namespace JavascriptPrecompiler.Utilities
 			return contents;
 		}
 
-		public static IDictionary<string, string> GetTemplateFiles(string searchPath)
+		public static IDictionary<string, string> GetTemplateFilePaths(string searchPath)
 		{
 			var result = new Dictionary<string, string>();
 			var files = Directory.GetFiles(Directory.GetCurrentDirectory(), searchPath);
 
-			foreach (var file in files)
+			foreach (var filePath in files)
 			{
-				result.Add(Path.GetFileNameWithoutExtension(file), GetFileContents(file));
+				result.Add(Path.GetFileNameWithoutExtension(filePath), filePath);
 			}
 
 			return result;

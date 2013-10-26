@@ -29,11 +29,13 @@ namespace PrecompilerTests
 		[Test]
 		public void CanGetMultipleFilesAndThereContents()
 		{
-			var filesAndContents = FileResources.GetTemplateFiles("testFiles/*.dust");
+			var filesAndContents = FileResources.GetTemplateFilePaths("testFiles/*.dust");
 
 			Assert.That(filesAndContents.Count(), Is.EqualTo(2));
 			Assert.That(filesAndContents.ContainsKey("helloWorld"));
+			Assert.That(filesAndContents["helloWorld"], Is.StringContaining("helloWorld.dust"));
 			Assert.That(filesAndContents.ContainsKey("helloWorld2"));
+			Assert.That(filesAndContents["helloWorld2"], Is.StringContaining("helloWorld2.dust"));
 		}
 	}
 }

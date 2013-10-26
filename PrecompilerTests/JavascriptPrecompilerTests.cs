@@ -11,7 +11,7 @@ using NUnit.Framework;
 namespace PrecompilerTests
 {
 	[TestFixture]
-	public class PrecompilerTests
+	public class JavascriptPrecompilerTests
 	{
 		[Test]
 		public void HandlebarsPrecompilerTest()

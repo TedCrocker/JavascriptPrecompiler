@@ -36,6 +36,15 @@ namespace JavascriptPrecompiler
 			return this;
 		}
 
+		public Precompiler Add(string templateFileSearchPath)
+		{
+			foreach (var fileFilePath in FileResources.GetTemplateFilePaths(templateFileSearchPath))
+			{
+				_filesToLoad.Add(fileFilePath.Key, fileFilePath.Value);
+			}
+			return this;
+		}
+
 		public MvcHtmlString Compile()
 		{
 			var builder = BuildOutput();
