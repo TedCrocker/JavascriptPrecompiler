@@ -9,3 +9,5 @@ PrecompilerTests/*.user
 SampleWebApp/bin
 SampleWebApp/obj
 SampleWebApp/*.user
+_Resharper*/
+SampleWebApp/Properties/PublishProfiles

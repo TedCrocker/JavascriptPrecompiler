@@ -2,6 +2,15 @@
 @JavascriptPrecompiler.Precompiler.Handlebars().IncludeLibrary().Add("~/Templates/*.handlebars").Compile()
 
 <article>
+	<h2>Introduction</h2>
+	<p>
+		The purpose of this package is to provide a way to precompile/cache JavaScript templates on the server. This is to increase speed/performance on the users client.
+		This is a fairly easy thing to do on a Nodejs based web server, but a little more complicated in a ASP.NET environment.
+		How this works is by using Jurassic.NET to load in the JavaScript template framework (like dustjs or handlebars) and then to pass that framework files holding the template script.
+	</p>
+</article>
+
+<article>
 	<h2>DustJs</h2>
 	<div class="codeSection">
 		<h4>Template:</h4>
@@ -30,8 +39,6 @@ dust.render("helloWord", { name: 'World' }, function(err, out) {
 	</div>
 </article>
 
-
-
 <article>
 	<h2>Handlebars</h2>
 	<div class="codeSection">
@@ -59,8 +66,6 @@ $('#handlebarsOutput').html(html);
 		<div class="exampleOutput" id="handlebarsOutput"></div>
 	</div>
 </article>
-
-
 
 @section scripts
 {
