@@ -22,6 +22,11 @@ namespace JavascriptPrecompiler
 			return new Precompiler(new HandlebarsPrecompiler());
 		}
 
+		public static Precompiler Custom(IPrecompiler precompiler)
+		{
+			return new Precompiler(precompiler);
+		}
+
 		private readonly IDictionary<string, string> _filesToLoad = new Dictionary<string, string>();
 		private IPrecompiler _precompiler;
 		private const string _controllerPath = "~/Precompiled/Js/{0}";
