@@ -2,6 +2,8 @@
 *.user
 JavascriptPrecompiler/bin
 JavascriptPrecompiler/obj
+JavascriptPrecompiler/JavascriptPrecompiler.*.nupkg
+JavascriptPrecompiler/JavascriptPrecompiler.nuspec
 JavascriptPrecompiler/*.user
 PrecompilerTests/bin
 PrecompilerTests/obj
