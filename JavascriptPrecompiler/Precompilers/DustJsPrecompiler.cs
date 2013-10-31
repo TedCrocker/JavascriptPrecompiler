@@ -27,7 +27,8 @@ namespace JavascriptPrecompiler.Precompilers
 
 		public string GetJavascript(string templateName, string template)
 		{
-			return string.Format("\t{0}('{1}');\r\n", _loadTemplateFunction, _engine.CallGlobalFunction("precompile", template, templateName).ToString());
+			var escapedTemplate = _engine.CallGlobalFunction("precompile", template.Replace("\"", "\\\""), templateName).ToString();
+			return string.Format("\t{0}('{1}');\r\n", _loadTemplateFunction, escapedTemplate);
 		}
 	}
 }
