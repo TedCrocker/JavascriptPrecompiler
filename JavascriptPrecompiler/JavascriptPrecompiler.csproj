@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="PrecompiledController.cs" />
     <Compile Include="Precompiler.cs" />
+    <Compile Include="PrecompilerOptions.cs" />
     <Compile Include="Precompilers\DustJsPrecompiler.cs" />
     <Compile Include="Precompilers\HandlebarsPrecompiler.cs" />
     <Compile Include="Precompilers\IPrecompiler.cs" />

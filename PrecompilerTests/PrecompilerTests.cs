@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using JavascriptPrecompiler;
@@ -64,6 +63,14 @@ namespace PrecompilerTests
 			var results = _precompiler.Compile().ToString();
 			var fileName = results.Replace("<script type='text/javascript' src='~/Precompiled/Js/", "").Replace("'></script>", "");
 			Assert.That(Cache[fileName], Is.Not.Null);
+		}
+
+		[Test]
+		public void CanOverrideDefaultNamespace()
+		{
+			var results = _precompiler.Compile("override").ToString();
+			var fileName = results.Replace("<script type='text/javascript' src='~/Precompiled/Js/", "").Replace("'></script>", "");
+			Assert.That(Cache[fileName], Is.StringContaining("window.override"));
 		}
 
 		private IDictionary<string, string> Cache

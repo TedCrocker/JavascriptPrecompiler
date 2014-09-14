@@ -54,9 +54,9 @@ namespace JavascriptPrecompiler
 			return this;
 		}
 
-		public MvcHtmlString Compile()
+		public MvcHtmlString Compile(string namespaceOverride = null)
 		{
-			var builder = BuildOutput();
+			var builder = BuildOutput(namespaceOverride);
 			var output = builder.ToString();
 
 			var hash = "template" + new MD5Hasher().GetHash(output);
@@ -74,7 +74,7 @@ namespace JavascriptPrecompiler
 			return this;
 		}
 
-		private StringBuilder BuildOutput()
+		private StringBuilder BuildOutput(string namespaceOverride)
 		{
 			var builder = new StringBuilder();
 
@@ -85,7 +85,7 @@ namespace JavascriptPrecompiler
 			}
 
 			builder.AppendLine("(function()\r\n{");
-			builder.AppendLine("\twindow.templates = {};");
+			builder.AppendFormat("\twindow.{0} = {{}};", string.IsNullOrEmpty(namespaceOverride) ? PrecompilerOptions.TemplateNamespace : namespaceOverride);
 			foreach (var file in _filesToLoad)
 			{
 				var filePath = file.Value;
