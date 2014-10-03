@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JavascriptPrecompiler", "JavascriptPrecompiler\JavascriptPrecompiler.csproj", "{C04884D6-152E-4C49-BF0A-12B1B9EBA075}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrecompilerTests", "PrecompilerTests\PrecompilerTests.csproj", "{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}"
@@ -21,8 +23,8 @@ Global
 		{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34B7DDAB-5FCF-4B26-8EF6-4A2379370C0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11CBD22B-C62B-463C-ADB4-B42C1DFDF3E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -10,7 +12,29 @@ namespace JavascriptPrecompiler
 {
 	public class Precompiler
 	{
-		internal static IDictionary<string, string> OutputCache = new Dictionary<string, string>(); 
+		internal static IDictionary<string, string> OutputCache = new Dictionary<string, string>();
+
+		public Precompiler()
+		{
+			_debugStatus = new DebugStatusChecker();
+		}
+
+		public Precompiler(IDebugStatusChecker debugStatus)
+		{
+			_debugStatus = debugStatus;
+		}
+
+		public Precompiler(IPrecompiler precompiler)
+		{
+			_precompiler = precompiler;
+			_debugStatus = new DebugStatusChecker();
+		}
+
+		public Precompiler(IPrecompiler precompiler, IDebugStatusChecker debugStatus)
+		{
+			_precompiler = precompiler;
+			_debugStatus = debugStatus;
+		}
 
 		public static Precompiler DustJS()
 		{
@@ -31,13 +55,9 @@ namespace JavascriptPrecompiler
 		private IPrecompiler _precompiler;
 		private const string _controllerPath = "~/Precompiled/Js/{0}";
 		private bool _includeRuntimeLibrary;
+		private IDebugStatusChecker _debugStatus;
 		private const string _scriptTag = @"<script type='text/javascript' src='{0}'></script>";
-
-
-		public Precompiler(IPrecompiler precompiler)
-		{
-			_precompiler = precompiler;
-		}
+		
 
 		public Precompiler Add(string templateName, string templateFilePath)
 		{
@@ -56,16 +76,32 @@ namespace JavascriptPrecompiler
 
 		public MvcHtmlString Compile(string namespaceOverride = null)
 		{
-			var builder = BuildOutput(namespaceOverride);
-			var output = builder.ToString();
-
-			var hash = "template" + new MD5Hasher().GetHash(output);
-			if (!OutputCache.ContainsKey(hash))
+			var hashKey = GetHashKey();
+			if (_debugStatus.InDebugMode)
 			{
-				OutputCache.Add(hash, output);				
-			}
+				var builder = BuildOutput(namespaceOverride);
+				var output = builder.ToString();
 
-			return new MvcHtmlString(string.Format(_scriptTag, GetPath(hash)));
+				OutputCache[hashKey] = output;
+			}
+			else
+			{
+				hashKey = "_" + hashKey;
+				if (!OutputCache.ContainsKey(hashKey))
+				{
+					var builder = BuildOutput(namespaceOverride);
+					var output = builder.ToString();
+					OutputCache.Add(hashKey, output);
+				}
+			}
+			return new MvcHtmlString(string.Format(_scriptTag, GetPath(hashKey)));
+		}
+
+		public string GetHashKey()
+		{
+			var files = string.Join("|", _filesToLoad.OrderBy(d => d.Value));
+			var hash = "template" + new MD5Hasher().GetHash(files);
+			return hash;
 		}
 
 		public Precompiler IncludeLibrary()

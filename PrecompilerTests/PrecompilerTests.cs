@@ -16,14 +16,13 @@ namespace PrecompilerTests
 		[SetUp]
 		public void Setup()
 		{
-			_precompiler = new Precompiler(new FakeJSPrecompiler());
+			_precompiler = new Precompiler(new FakeJSPrecompiler(), new FakeDebugStatusChecker());
 			_precompiler.GetType().GetField("OutputCache", BindingFlags.NonPublic | BindingFlags.Static).SetValue(null, new Dictionary<string, string>());
 		}
 
 		[Test]
 		public void CanAddSingleFile()
 		{
-
 			_precompiler.Add("testTemplate", "testFiles/helloWorld.dust");
 
 			var result = _precompiler.Compile();
@@ -82,6 +81,11 @@ namespace PrecompilerTests
 			}
 		}
 
+	}
+
+	public class FakeDebugStatusChecker : IDebugStatusChecker
+	{
+		public bool InDebugMode { get { return true; } }
 	}
 
 	public class FakeJSPrecompiler : IPrecompiler

@@ -52,7 +52,9 @@
     <Compile Include="Precompilers\HandlebarsPrecompiler.cs" />
     <Compile Include="Precompilers\IPrecompiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\DebugStatusChecker.cs" />
     <Compile Include="Utilities\FileResources.cs" />
+    <Compile Include="Utilities\IDebugStatusChecker.cs" />
     <Compile Include="Utilities\IFileHasher.cs" />
     <Compile Include="Utilities\MD5Hasher.cs" />
   </ItemGroup>
